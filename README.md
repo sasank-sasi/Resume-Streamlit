@@ -7,6 +7,7 @@ This repository hosts the source code for my interactive resume, powered by Stre
 Live Demo
 
 Check out the live demo of my resume hosted on Streamlit: Resume Streamlit App
+https://sasanksasi.streamlit.app
 
 Features
 
@@ -27,7 +28,7 @@ Run the Streamlit app:
 bash
 Copy code
 streamlit run app.py
-Open your browser and navigate to http://localhost:8501 to view the local instance of the resume.
+Open your browser and navigate to https://sasanksasi.streamlit.app to view the local instance of the resume.
 Technology Stack
 
 Streamlit: The app is built using Streamlit, a powerful Python library for creating interactive web applications.
