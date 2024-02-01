@@ -1,24 +1,19 @@
 {
   "WORK_EXPERIENCE": [
     {
-      "DESIGNATION" : "Human Being",
-      "COMPANY" : "Planet Earth",
-      "DURATION" : "Birth - Present",
+      "DESIGNATION" : "FrostHacks",
+      "COMPANY" : "MLH",
+      "DURATION" : "Fake News Detection",
       "DETAILS" : [
-        "Successfully navigated the challenges of infancy, childhood, adolescence, and adulthood.",
-        "Developed exceptional multitasking skills, managing various responsibilities simultaneously, including work, family, and hobbies.",
-        "Continuously improved emotional intelligence through experiences such as laughter, tears, and meaningful connections with other humans.",
-        "Adept at adapting to changing environments and learning from both successes and failures."
+        "Introducing an intricately crafted machine learning marvel—a Fake News Detection model, meticulously designed to discern fact from fiction. With a fusion of advanced algorithms and cutting-edge techniques, this discerning model stands as a beacon of truth, shielding against the dissemination of misinformation. Elevate your information landscape with a technological guardian that navigates the digital realm with unparalleled sophistication and accuracy."
       ]
     },
     {
-      "DESIGNATION" : "Volunteer",
-      "COMPANY" : "Earth Community",
-      "DURATION" : "20XX - Present",
+      "DESIGNATION" : "Braino-Vision",
+      "COMPANY" : "AI-ML",
+      "DURATION" : "Hotel Finance Bot",
       "DETAILS" : [
-        "Engaged in acts of kindness, philanthropy, and community service.",
-        "Supported various charitable organizations and initiatives aimed at improving the lives of fellow humans.",
-        "Gained a deep appreciation for the interconnectedness of all beings on this planet."
+        "Introducing an avant-garde Hotel Finance Management AI model, a pinnacle of sophistication and efficiency. Seamlessly blending cutting-edge artificial intelligence, this visionary solution orchestrates financial operations with precision, elevating the financial landscape of hospitality establishments to unprecedented levels of accuracy and insight. Welcome to a realm where financial management meets the prowess of artificial intelligence, redefining excellence in hotel finance."
       ]
     }
   ]

@@ -2,7 +2,7 @@ from pathlib import Path
 import streamlit as st
 from PIL import Image
 import json
-
+import webbrowser
 # FILE PATHS
 
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
@@ -41,29 +41,40 @@ with col1:
 with col2:
     st.title(header_data["NAME"])
     st.write(header_data["DESCRIPTION"])
-    st.download_button(
-        label=" 📄 Download Resume",
-        data=PDFbyte,
-        file_name=resume_file.name,
-        mime="application/octet-stream",
-    )
+    if st.button("📄 Download Resume"):
+        # Replace 'https://your-website.com' with the actual URL you want to redirect to
+        webbrowser.open_new_tab('https://github.com/sasank-sasi/vin/blob/master/resume.pdf')
 st.write('\n')
 
-# SOCIAL MEDIA SECTION
+# SOCIAL MEDIA SECTIONa
 
-if sections_data["SOCIAL_MEDIA"]:
+if sections_data.get("SOCIAL_MEDIA"):
+    # Load Social Media Data from JSON File
     with open(social_media_file, "r") as social_media_raw:
         social_media_data = json.load(social_media_raw)
-    if len(social_media_data["SOCIAL_MEDIA"]) > social_media_data["MAX_SOCIAL_MEDIA_COLUMNS"]:
+
+    # Define Icons for Each Social Media Platform
+    platform_icons = {
+        "Twitter": "🐦",
+        "LinkedIn": "🔗",
+        "GitHub": "📥",
+        # Add more platforms and corresponding icons as needed
+    }
+
+    # Display Social Media Links in Columns with Icons
+    if len(social_media_data.get("SOCIAL_MEDIA", {})) > social_media_data.get("MAX_SOCIAL_MEDIA_COLUMNS", 0):
         for row in range((len(social_media_data["SOCIAL_MEDIA"]) // social_media_data["MAX_SOCIAL_MEDIA_COLUMNS"]) + 1):
             cols = st.columns(social_media_data["MAX_SOCIAL_MEDIA_COLUMNS"])
             for index, (platform, link) in enumerate(social_media_data["SOCIAL_MEDIA"].items()):
                 if index // social_media_data["MAX_SOCIAL_MEDIA_COLUMNS"] == row:
-                    cols[index % social_media_data["MAX_SOCIAL_MEDIA_COLUMNS"]].write(f"🔖 [{platform}]({link})")
+                    icon = platform_icons.get(platform, "📬")  # Default to a globe emoji if no specific icon
+                    cols[index % social_media_data["MAX_SOCIAL_MEDIA_COLUMNS"]].write(f"{icon} [{platform}]({link})")
     else:
-        cols = st.columns(len(social_media_data["SOCIAL_MEDIA"]))
+        cols = st.columns(len(social_media_data.get("SOCIAL_MEDIA", {})))
         for index, (platform, link) in enumerate(social_media_data["SOCIAL_MEDIA"].items()):
-            cols[index].write(f"🔖 [{platform}]({link})")
+            icon = platform_icons.get(platform, "📬")  # Default to a globe emoji if no specific icon
+            cols[index].write(f"{icon} [{platform}]({link})")
+
     st.write('\n')
     st.write('\n')
 
@@ -88,6 +99,7 @@ if sections_data["SKILLS"]:
 
 # WORK EXPERIENCE SECTION
 
+# Check if 'EXPERIENCE' key exists in sections_data
 if sections_data["WORK_EXPERIENCE"]:
     st.subheader("📎 Work Experience")
     with open(work_experience_file, "r") as work_experience_raw:
@@ -95,13 +107,13 @@ if sections_data["WORK_EXPERIENCE"]:
     for description in work_experience_data["WORK_EXPERIENCE"]:
         cols = st.columns(3)
         cols[0].write(f"💼 **{description['DESIGNATION']}**")
-        cols[1].write(f"🏢 **{description['COMPANY']}**")
+        cols[1].write(f"⌨️ **{description['COMPANY']}**")
         cols[2].write(f"🕰️ **{description['DURATION']}**")
         for item in description['DETAILS']:
             st.write(f"📌 {item}")
         st.write('\n')
     st.write('\n')
-
+    
 # EDUCATION SECTION
 
 if sections_data["EDUCATION"]:
@@ -111,7 +123,7 @@ if sections_data["EDUCATION"]:
     for description in education_data["EDUCATION"]:
         cols = st.columns(3)
         cols[0].write(f"🎓 **{description['COURSE']}**")
-        cols[1].write(f"🏢 **{description['COLLEGE']}**")
+        cols[1].write(f"💿 **{description['COLLEGE']}**")
         cols[2].write(f"🕰️ **{description['DURATION']}**")
         for item in description['DETAILS']:
             st.write(f"✒️ {item}")
@@ -125,31 +137,10 @@ if sections_data["PROJECTS"]:
     with open(project_file, "r") as project_raw:
         project_data = json.load(project_raw)
     for item in project_data["PROJECTS"]:
-        st.write(f"🖥️ {item}")
+        st.write(f"⚡️ {item}")
     st.write('\n')
     st.write('\n')
 
-# PUBLICATIONS SECTION
-
-if sections_data["PUBLICATIONS"]:
-    st.subheader("📎 Publications")
-    with open(publication_file, "r") as publication_raw:
-        publication_data = json.load(publication_raw)
-    for item in publication_data["PUBLICATIONS"]:
-        st.write(f"📝 {item}")
-    st.write('\n')
-    st.write('\n')
-
-# PUBLICATIONS SECTION
-
-if sections_data["PUBLIC_SPEAKING"]:
-    st.subheader("📎 Public Speaking")
-    with open(public_speaking_file, "r") as public_speaking_raw:
-        public_speaking_data = json.load(public_speaking_raw)
-    for item in public_speaking_data["PUBLIC_SPEAKING"]:
-        st.write(f"🎙️ {item}")
-    st.write('\n')
-    st.write('\n')
 
 # CERTIFICATES SECTION
 
@@ -166,22 +157,12 @@ if sections_data["CERTIFICATES"]:
     else:
         cols = st.columns(len(certificates_data["CERTIFICATES"]))
         for index, (certificate, link) in enumerate(certificates_data["CERTIFICATES"].items()):
-            cols[index].write(f"📜 [{certificate}]({link})")
+            cols[index].write(f"📝 [{certificate}]({link})")
     st.write('\n')
     st.write('\n')
 
-# ACCOMPLISHMENTS SECTION
-
-if sections_data["ACCOMPLISHMENTS"]:
-    st.subheader("📎 Accomplishments")
-    with open(accomplishments_file, "r") as accomplishments_raw:
-        accomplishments_data = json.load(accomplishments_raw)
-    for item in accomplishments_data["ACCOMPLISHMENTS"]:
-        st.write(f"🏆 {item}")
-    st.write('\n')
-    st.write('\n')
 
 # KINDLY SUPPORT THE EFFORTS
 
 st.write('\n')
-st.caption('Developed with ❤️ by [Sandip Palit](https://www.linkedin.com/in/sandip-palit/). Kindly support this [Resume Template](https://github.com/SandipPalit/Resume-Template) by giving a 🌟.')
+st.caption('Developed with ❤️ by [SASI](https://www.linkedin.com/in/sasank-sasi-96b34723a/). (https://github.com/sasank-sasi) 🌟.')

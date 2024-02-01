@@ -1,19 +1,27 @@
 {
   "EDUCATION": [
     {
-      "COURSE" : "Master of Humanity",
-      "COLLEGE" : "World Academy of Life",
-      "DURATION" : "20XX - 20XX",
+      "COURSE" : "De Paul School",
+      "COLLEGE" : "Secondary School",
+      "DURATION" : "2019",
       "DETAILS" : [
-        "Completed Master of Humanity under World Academy of Life in 20XX."
+        "Successfully culminated my secondary school journey with excellence, embracing each academic challenge with unwavering commitment and a thirst for knowledge."
       ]
     },
     {
-      "COURSE" : "Bachelor of Life",
-      "COLLEGE" : "Empathy University",
-      "DURATION" : "20XX - 20XX",
+      "COURSE" : "Diploma",
+      "COLLEGE" : "Computer Science",
+      "DURATION" : "2022",
       "DETAILS" : [
-        "Completed Bachelor of Life under Empathy University in 20XX."
+        "Triumphantly concluded my Diploma in Computer Science, navigating the realms of algorithms, coding languages, and system design with precision."
+      ]
+    },
+    {
+      "COURSE" : "UnderGrad",
+      "COLLEGE" : "Ai&Ds",
+      "DURATION" : "2025",
+      "DETAILS" : [
+        "Embarked on an exciting academic journey, currently immersed in the pursuit of excellence in Artificial Intelligence."
       ]
     }
 ]
