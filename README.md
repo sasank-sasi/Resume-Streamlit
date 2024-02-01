@@ -1,12 +1,12 @@
-# Resume-Streamlit
+# Resume-Streamlit🎈
 
-Overview
+Overview📝
 
 This repository hosts the source code for my interactive resume, powered by Streamlit. It provides a user-friendly and visually appealing interface to showcase my professional experience, skills, and projects.
 
 Live Demo
 
-Check out the live demo of my resume hosted on Streamlit: Resume Streamlit App
+Check out the live demo of my resume hosted on Streamlit: Resume Streamlit App🎈
 https://sasanksasi.streamlit.app
 
 Features
@@ -16,7 +16,7 @@ Project Showcase: Explore details of my projects and contributions in a visually
 Dynamic Content: Streamlit enables dynamic content updates, ensuring the latest information is always available.
 How to Run Locally
 
-Clone this repository:
+Clone this repository:⌨️📥
 bash
 Copy code
 git clone https://github.com/sasank-sasi/Resume-Streamlit.git
